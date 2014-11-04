@@ -6,7 +6,5 @@
 meteor-platform
 autopublish
 insecure
-coffeescript
 accounts-ui
 accounts-password
-
