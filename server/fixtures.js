@@ -20,6 +20,7 @@ var doron = Meteor.users.findOne({username: "doron"});
 var shai = Meteor.users.findOne({username: "shai"});
 if(demodina.users.indexOf(doron._id) < 0){
 	demodina.users.push(doron._id);
+<<<<<<< HEAD
 	doron.houses = [demodina._id];
 	Meteor.users.update(doron, doron);
 }
@@ -27,6 +28,15 @@ if(demodina.users.indexOf(shai._id) < 0){
 	demodina.users.push(shai._id);
 	shai.houses = [demodina._id];
 	Meteor.users.update(shai, shai);
+=======
+	doron.profile = {houses: [demodina._id]};
+	Meteor.users.update(doron._id, doron);
+}
+if(demodina.users.indexOf(shai._id) < 0){
+	demodina.users.push(shai._id);
+	shai.profile = {houses = [demodina._id]};
+	Meteor.users.update(shai._id, shai);
+>>>>>>> a115bbe7adb84c23672e806a7eba305e1a975a89
 }
 Houses.update(demodina._id, demodina);
 
