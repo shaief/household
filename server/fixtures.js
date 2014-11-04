@@ -20,12 +20,12 @@ var doron = Meteor.users.findOne({username: "doron"});
 var shai = Meteor.users.findOne({username: "shai"});
 if(demodina.users.indexOf(doron._id) < 0){
 	demodina.users.push(doron._id);
-	doron.houses = [demodina._id];
+	doron.profile = {houses: [demodina._id]};
 	Meteor.users.update(doron._id, doron);
 }
 if(demodina.users.indexOf(shai._id) < 0){
 	demodina.users.push(shai._id);
-	shai.houses = [demodina._id];
+	shai.profile = {houses = [demodina._id]};
 	Meteor.users.update(shai._id, shai);
 }
 Houses.update(demodina._id, demodina);
