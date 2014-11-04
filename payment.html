@@ -1,34 +1,4 @@
-<head>
-  <title>household</title>
-</head>
-
-<body>
-  {{loggingIn}}
-  {{> loginButtons}}
-  <h1>Welcome to Meteor!</h1>
-  <!-- {{> hello}} -->
-  {{> purchase}}
-</body>
-
-<template name="hello">
-	{{#if userIsVerified}}
-		user is verified by shai
-	{{else}}
-		user is not verified by shai. go verify yourself!
-	{{/if}}
-	{{userEmailAddress}}
-
-  <button class="addToCounter">Click Me</button>
-  <p>You've pressed the button {{plus}} times.</p>
-  <button class="addToCounter1">Click Me</button>
-  <p>You've pressed the button {{minus}} times.</p>
-  <p>last counter: {{counter}} </p>
-  <br>
-  {{totalCounts}}
-</template>
-
-
-<template name="purchase">
+<template name="payment">
 	{{#if userIsVerified}}
 		user is verified by shai
 	{{else}}
@@ -43,9 +13,8 @@
 			  <label class="control-label" for="selectbasic-0">Select Basic</label>
 			  <div class="controls">
 			    <select id="selectbasic-0" name="selectbasic-0" class="input-xlarge">
-			      {{#each items}}
-			      <option>{{name}}</option>
-			      {{/each}}
+			      <option>Option one</option>
+			      <option>Option two</option>
 			    </select>
 			  </div>
 			</div>

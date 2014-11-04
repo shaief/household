@@ -9,7 +9,7 @@ if(Meteor.users.find().count() == 0){
 // create some houses
 if(Houses.find().count() == 0){
 	var houses = JSON.parse(Assets.getText("fixtures/houses.json"));
-	for(house in houses){ 
+	for(var house in houses){ 
 		Houses.insert(houses[house]);
 	}
 }
@@ -21,14 +21,23 @@ var shai = Meteor.users.findOne({username: "shai"});
 if(demodina.users.indexOf(doron._id) < 0){
 	demodina.users.push(doron._id);
 	doron.houses = [demodina._id];
-	Meteor.users.update(doron._id, doron);
+	Meteor.users.update(doron, doron);
 }
 if(demodina.users.indexOf(shai._id) < 0){
 	demodina.users.push(shai._id);
 	shai.houses = [demodina._id];
-	Meteor.users.update(shai._id, shai);
+	Meteor.users.update(shai, shai);
 }
 Houses.update(demodina._id, demodina);
 
-//add some purchases
-//if Purchases.find().count() is 0
+//add some items
+if(Items.find().count() == 0){
+	var items = JSON.parse(Assets.getText("fixtures/items.json"));
+	for(var item in  items){
+		items[item].house = demodina._id;
+		Items.insert(items[item]);
+	}
+}
+
+
+
