@@ -3,9 +3,102 @@
 </head>
 
 <body>
-	{{> loginButtons}} 
-
-  	{{#if currentUser}} 
-  		current user
-  	{{/if}}
+  {{loggingIn}}
+  {{> loginButtons}}
+  <h1>Welcome to Meteor!</h1>
+  <!-- {{> hello}} -->
+  {{> payment}}
 </body>
+
+<template name="hello">
+	{{#if userIsVerified}}
+		user is verified by shai
+	{{else}}
+		user is not verified by shai. go verify yourself!
+	{{/if}}
+	{{userEmailAddress}}
+
+  <button class="addToCounter">Click Me</button>
+  <p>You've pressed the button {{plus}} times.</p>
+  <button class="addToCounter1">Click Me</button>
+  <p>You've pressed the button {{minus}} times.</p>
+  <p>last counter: {{counter}} </p>
+  <br>
+  {{totalCounts}}
+</template>
+
+
+<template name="payment">
+	{{#if userIsVerified}}
+		user is verified by shai
+	{{else}}
+		<form class="form-horizontal">
+			<fieldset>
+
+			<!-- Form Name -->
+			<legend>Payment</legend>
+
+			<!-- Select Basic -->
+			<div class="control-group">
+			  <label class="control-label" for="selectbasic-0">Select Basic</label>
+			  <div class="controls">
+			    <select id="selectbasic-0" name="selectbasic-0" class="input-xlarge">
+			      <option>Option one</option>
+			      <option>Option two</option>
+			    </select>
+			  </div>
+			</div>
+
+			<!-- Select Multiple -->
+			<div class="control-group">
+			  <label class="control-label" for="selectmultiple-0">Select Multiple</label>
+			  <div class="controls">
+			    <select id="selectmultiple-0" name="selectmultiple-0" class="input-xlarge" multiple="multiple">
+			      <option>Option one</option>
+			      <option>Option two</option>
+			    </select>
+			  </div>
+			</div>
+
+			<!-- Multiple Radios -->
+			<div class="control-group">
+			  <label class="control-label" for="radios">Multiple Radios</label>
+			  <div class="controls">
+			    <label class="radio" for="radios-0">
+			      <input name="radios" id="radios-0" value="Option one" checked="checked" type="radio">
+			      Option one
+			    </label>
+			    <label class="radio" for="radios-1">
+			      <input name="radios" id="radios-1" value="Option two" type="radio">
+			      Option two
+			    </label>
+			  </div>
+			</div>
+
+			<!-- Button (Double) -->
+			<div class="control-group">
+			  <label class="control-label" for="button1id-0">Double Button</label>
+			  <div class="controls">
+			    <button id="button1id-0" name="button1id-0" class="btn btn-success">Good Button</button>
+			    <button id="button2id" name="button2id" class="btn btn-danger">Scary Button</button>
+			  </div>
+			</div>
+
+			</fieldset>
+			</form>
+
+
+
+	
+		user is not verified. go verify yourself!
+	{{/if}}
+	{{userEmailAddress}}
+
+  <button class="addToCounter">Click Me</button>
+  <p>You've pressed the button {{plus}} times.</p>
+  <button class="addToCounter1">Click Me</button>
+  <p>You've pressed the button {{minus}} times.</p>
+  <p>last counter: {{counter}} </p>
+  <br>
+  {{totalCounts}}
+</template>
