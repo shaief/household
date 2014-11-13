@@ -52,21 +52,29 @@
                         </select>
                     </div>
 
-                    <label class="control-label" for="selectmultiple-0">Items purchased:</label>
+                    <label class="control-label" for="items-list">Items purchased:</label>
 
                     <div id="items-list" class="controls">
-                        <select id="selectmultiple-0" name="selectmultiple-0" class="input-xlarge" multiple="multiple">
+                        <select id="items-list" name="selectmultiple-0" class="input-xlarge" multiple="multiple">
                             {{#each items}}
                                 <option id="{{_id}}" class="single-item">{{name}}</option>
                             {{/each}}
                         </select>
                     </div>
 
-                    <label class="control-label" for="radios">Select category:</label>
+                    <label class="control-label" for="items-list">Add item to the list:</label>
+                    <div class="input-group">
+                        <input  id="add-item" type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button id="submit-item"  class="btn btn-default" type="button">Add</button>
+                        </span>
+                    </div>
+                    <!-- /input-group -->
+                    <label class="control-label" for="categories">Select category:</label>
 
-                    <div class="controls">
+                    <div id="categories-list" class="controls">
                         {{#each categories}}
-                            <label class="radio" for="radios-0">
+                            <label class="categories" for="radios-0">
                                 <input name="radios" id="category" value="{{_id}}" checked="checked" type="radio">
                                 {{name}}
                             </label>
@@ -75,10 +83,11 @@
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label" for="radios">Total price:</label>
+                    <label class="control-label" for="total-price">Total price:</label>
+
                     <div class="input-group">
                         <span class="input-group-addon">₪</span>
-                        <input type="text" class="form-control">
+                        <input id="total-price" type="text" class="form-control">
                         <span class="input-group-addon"></span>
                     </div>
 
@@ -86,11 +95,11 @@
 
                 <!-- Button (Double) -->
                 <div class="control-group">
-                    <label class="control-label" for="button1id-0">Double Button</label>
+                    <label class="control-label" for="submit-payment">Double Button</label>
 
                     <div class="controls">
-                        <button id="button1id-0" name="button1id-0" class="btn btn-success">Good Button</button>
-                        <button id="button2id" name="button2id" class="btn btn-danger">Scary Button</button>
+                        <button id="submit-payment" name="submit-payment" class="btn btn-success">Good Button</button>
+                        <button id="cancel-payment" name="cancel-payment" class="btn btn-danger">Scary Button</button>
                     </div>
                 </div>
 

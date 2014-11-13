@@ -17,7 +17,18 @@ Template.purchase.helpers({
 });
 
 Template.purchase.events({
-	"click #button1id-0": function(JQevent, blazeTemplate){
+
+	"click #submit-item": function(JQevent, blazeTemplate) {
+		var addItem = document.getElementById("add-item").value;
+		Items.insert({
+			"name": addItem,
+			"house": house()._id,
+		})
+		document.getElementById("add-item").value = '';
+		debugger;
+	},
+
+	"click #submit-payment": function(JQevent, blazeTemplate){
 
 		var tenant = $("#tenant-names .tenant")
 			.filter(function(i, tenant){return tenant.selected;})
@@ -26,9 +37,17 @@ Template.purchase.events({
 		var items = $("#items-list").find(".single-item");
 		items = items.filter(function(i,item){return item.selected;})
 			.map(function(i, item){return item.id});
+
+		var categories = $("#categories-list #category");
+		category = categories.filter(function(i,category){return category.selected;})
+			.map(function(i, item){return item.id});
+
+
+
 		debugger;
 		Purchases.insert({
 			"tenant": tenant,
+			"category": category,
 			"items": items.toArray()
 		}); 
 	}
