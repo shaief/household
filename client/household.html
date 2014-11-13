@@ -1,104 +1,113 @@
 <head>
-  <title>household</title>
+    <meta charset="UTF-8">
+    <title>household</title>
 </head>
 
 <body>
-  {{loggingIn}}
-  {{> loginButtons}}
-  <h1>Welcome to Meteor!</h1>
-  <!-- {{> hello}} -->
-  {{> purchase}}
+{{loggingIn}}
+{{> loginButtons}}
+<h1>Household</h1>
+<!-- {{> hello}} -->
+{{> purchase}}
 </body>
 
 <template name="hello">
-	{{#if userIsVerified}}
-		user is verified by shai
-	{{else}}
-		user is not verified by shai. go verify yourself!
-	{{/if}}
-	{{userEmailAddress}}
+    {{#if userIsVerified}}
+        user is verified by shai
+    {{else}}
+        user is not verified by shai. go verify yourself!
+    {{/if}}
+    {{userEmailAddress}}
 
-  <button class="addToCounter">Click Me</button>
-  <p>You've pressed the button {{plus}} times.</p>
-  <button class="addToCounter1">Click Me</button>
-  <p>You've pressed the button {{minus}} times.</p>
-  <p>last counter: {{counter}} </p>
-  <br>
-  {{totalCounts}}
+    <button class="addToCounter">Click Me</button>
+    <p>You've pressed the button {{plus}} times.</p>
+    <button class="addToCounter1">Click Me</button>
+    <p>You've pressed the button {{minus}} times.</p>
+
+    <p>last counter: {{counter}} </p>
+    <br>
+    {{totalCounts}}
 </template>
 
 
 <template name="purchase">
-	{{#if userIsVerified}}
-		user is verified by shai
-	{{else}}
-		<form class="form-horizontal">
-			<fieldset>
+    {{#if userIsVerified}}
+        user is verified by shai
+    {{else}}
+        <form class="form-horizontal">
+            <fieldset>
 
-			<!-- Form Name -->
-			<legend>Payment</legend>
+                <!-- Form Name -->
+                <legend>Payment</legend>
 
-			<!-- Select Basic -->
-			<div class="control-group">
-			  <label class="control-label" for="selectbasic-0">Select Basic</label>
-			  <div id="tenant-names" class="controls">
-			    <select id="selectbasic-0" name="selectbasic-0" class="input-xlarge">
-			      {{#each users}}
-			      <option id="{{_id}}" class="tenant">{{username}}</option>
-			      {{/each}}
-			    </select>
-			  </div>
-			</div>
+                <!-- Select Basic -->
+                <div class="control-group">
+                    <label class="control-label" for="selectbasic-0">Tenant:</label>
 
-			<!-- Select Multiple -->
-			<div class="control-group">
-			  <label class="control-label" for="selectmultiple-0">Select Multiple</label>
-			  <div id="items-list" class="controls">
-			    <select id="selectmultiple-0" name="selectmultiple-0" class="input-xlarge" multiple="multiple">
-			      {{#each items}}
-			      <option id="{{_id}}" class="single-item">{{name}}</option>
-			      {{/each}}
-			    </select>
-			  </div>
-			</div>
+                    <div id="tenant-names" class="controls">
+                        <select id="selectbasic-0" name="selectbasic-0" class="input-xlarge">
+                            {{#each users}}
+                                <option id="{{_id}}" class="tenant">{{username}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
 
-			<!-- Multiple Radios -->
-			<div class="control-group">
-			  <label class="control-label" for="radios">Multiple Radios</label>
-			  <div class="controls">
-			      {{#each categories}}
-			       <label class="radio" for="radios-0">
-			      <input name="radios" id="category" value="{{_id}}" checked="checked" type="radio">
-			      {{name}}
-			    </label>
-			      {{/each}}
-			  </div>
-			</div>
+                    <label class="control-label" for="selectmultiple-0">Items purchased:</label>
 
-			<!-- Button (Double) -->
-			<div class="control-group">
-			  <label class="control-label" for="button1id-0">Double Button</label>
-			  <div class="controls">
-			    <button id="button1id-0" name="button1id-0" class="btn btn-success">Good Button</button>
-			    <button id="button2id" name="button2id" class="btn btn-danger">Scary Button</button>
-			  </div>
-			</div>
+                    <div id="items-list" class="controls">
+                        <select id="selectmultiple-0" name="selectmultiple-0" class="input-xlarge" multiple="multiple">
+                            {{#each items}}
+                                <option id="{{_id}}" class="single-item">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
 
-			</fieldset>
-			</form>
+                    <label class="control-label" for="radios">Select category:</label>
+
+                    <div class="controls">
+                        {{#each categories}}
+                            <label class="radio" for="radios-0">
+                                <input name="radios" id="category" value="{{_id}}" checked="checked" type="radio">
+                                {{name}}
+                            </label>
+                        {{/each}}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="radios">Total price:</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">₪</span>
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon"></span>
+                    </div>
+
+                </div>
+
+                <!-- Button (Double) -->
+                <div class="control-group">
+                    <label class="control-label" for="button1id-0">Double Button</label>
+
+                    <div class="controls">
+                        <button id="button1id-0" name="button1id-0" class="btn btn-success">Good Button</button>
+                        <button id="button2id" name="button2id" class="btn btn-danger">Scary Button</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
 
 
+        user is not verified. go verify yourself!
+    {{/if}}
+    {{userEmailAddress}}
 
-	
-		user is not verified. go verify yourself!
-	{{/if}}
-	{{userEmailAddress}}
+    <button class="addToCounter">Click Me</button>
+    <p>You've pressed the button {{plus}} times.</p>
+    <button class="addToCounter1">Click Me</button>
+    <p>You've pressed the button {{minus}} times.</p>
 
-  <button class="addToCounter">Click Me</button>
-  <p>You've pressed the button {{plus}} times.</p>
-  <button class="addToCounter1">Click Me</button>
-  <p>You've pressed the button {{minus}} times.</p>
-  <p>last counter: {{counter}} </p>
-  <br>
-  {{totalCounts}}
+    <p>last counter: {{counter}} </p>
+    <br>
+    {{totalCounts}}
 </template>
