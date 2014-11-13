@@ -27,7 +27,7 @@ Template.purchase.events({
 		items = items.filter(function(i,item){return item.selected;})
 			.map(function(i, item){return item.id});
 		debugger;
-		Purcheses.insert({
+		Purchases.insert({
 			"tenant": tenant,
 			"items": items.toArray()
 		}); 
