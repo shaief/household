@@ -43,8 +43,8 @@
 			  <label class="control-label" for="selectbasic-0">Select Basic</label>
 			  <div class="controls">
 			    <select id="selectbasic-0" name="selectbasic-0" class="input-xlarge">
-			      {{#each items}}
-			      <option>{{name}}</option>
+			      {{#each users}}
+			      <option id="{{_id}}">{{username}}</option>
 			      {{/each}}
 			    </select>
 			  </div>
@@ -55,8 +55,9 @@
 			  <label class="control-label" for="selectmultiple-0">Select Multiple</label>
 			  <div class="controls">
 			    <select id="selectmultiple-0" name="selectmultiple-0" class="input-xlarge" multiple="multiple">
-			      <option>Option one</option>
-			      <option>Option two</option>
+			      {{#each items}}
+			      <option id="{{_id}}">{{name}}</option>
+			      {{/each}}
 			    </select>
 			  </div>
 			</div>
@@ -65,14 +66,12 @@
 			<div class="control-group">
 			  <label class="control-label" for="radios">Multiple Radios</label>
 			  <div class="controls">
-			    <label class="radio" for="radios-0">
-			      <input name="radios" id="radios-0" value="Option one" checked="checked" type="radio">
-			      Option one
+			      {{#each categories}}
+			       <label class="radio" for="radios-0">
+			      <input name="radios" id="category" value="{{_id}}" checked="checked" type="radio">
+			      {{name}}
 			    </label>
-			    <label class="radio" for="radios-1">
-			      <input name="radios" id="radios-1" value="Option two" type="radio">
-			      Option two
-			    </label>
+			      {{/each}}
 			  </div>
 			</div>
 
