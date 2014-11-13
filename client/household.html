@@ -41,10 +41,10 @@
 			<!-- Select Basic -->
 			<div class="control-group">
 			  <label class="control-label" for="selectbasic-0">Select Basic</label>
-			  <div class="controls">
+			  <div id="tenant-names" class="controls">
 			    <select id="selectbasic-0" name="selectbasic-0" class="input-xlarge">
 			      {{#each users}}
-			      <option id="{{_id}}">{{username}}</option>
+			      <option id="{{_id}}" class="tenant">{{username}}</option>
 			      {{/each}}
 			    </select>
 			  </div>
@@ -53,10 +53,10 @@
 			<!-- Select Multiple -->
 			<div class="control-group">
 			  <label class="control-label" for="selectmultiple-0">Select Multiple</label>
-			  <div class="controls">
+			  <div id="items-list" class="controls">
 			    <select id="selectmultiple-0" name="selectmultiple-0" class="input-xlarge" multiple="multiple">
 			      {{#each items}}
-			      <option id="{{_id}}">{{name}}</option>
+			      <option id="{{_id}}" class="single-item">{{name}}</option>
 			      {{/each}}
 			    </select>
 			  </div>
