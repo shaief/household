@@ -1,5 +1,7 @@
 [
 	{"name": "bamba", "category": "food"},
 	{"name": "toilet paper", "category": "cleaning"},
-	{"name": "bread", "category": "food"}
+	{"name": "bread", "category": "food"},
+	{"name": "screws", "category": "maintainance"},
+	{"name": "wood", "category": "maintainance"}
 ]
