@@ -79,19 +79,9 @@
                             {{/each}}
                         </select>
                     </div>
-                    <!--<label class="control-label" for="categories">Select category:</label>-->
-                    <!--<div class="categories-list controls">-->
-                        <!--{{#each categories}}-->
-                            <!--<label class="category-label" for="category">-->
-                                <!--<input name="radios" category-name="{{name}}" class="category" value="{{_id}}"  type="radio">-->
-                                <!--{{name}}-->
-                            <!--</label>-->
-                        <!--{{/each}}-->
-                    <!--</div>-->
                 </div>
 
                 <label class="control-label" for="items-list">Items purchased:</label>
-
                 <div id="items-list" class="controls">
                     <select id="items-list" name="selectmultiple-0" class="input-xlarge" multiple="multiple">
                     {{#each items}}
@@ -106,6 +96,10 @@
                         <span class="input-group-btn">
                     <button id="submit-item"  class="btn btn-default" type="button">Add</button>
                     </span>
+                    {{#each suggestedItems}}
+                        {{name}}
+                    {{/each}}
+
                 </div>
 
                 <div class="control-group">

@@ -17,10 +17,19 @@ Template.purchase.helpers({
     },
     categories: function () {
         return Categories.find({house: house()._id});
+    },
+    suggestedItems: function () {
+        if (Session.get("searched-item")) {
+            return Items.find({name: new RegExp(Session.get("searched-item"))})
+        }
     }
 });
 
 Template.purchase.events({
+
+    "keyup #add-item": function(JQevent, blazeTemplate) {
+      Session.set("searched-item", $("#add-item").val());
+    },
 
     "change .categories-list": function (JQevent, blazeTemplate) {
         var categoryName = $(".categories-list .category").filter(function (i, cat) {
