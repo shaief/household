@@ -44,9 +44,11 @@
 <!--</template>-->
 
 <template name="purchase">
+    {{userEmailAddress}}
     {{#if userIsVerified}}
-        user is verified by shai
+        user is verified!
     {{else}}
+        user is not verified. go verify yourself!
         <form class="form-horizontal">
             <fieldset>
 
@@ -65,17 +67,27 @@
                         </select>
                     </div>
                 </div>
-                <div class="control-group">
 
+                <div class="control-group">
                     <label class="control-label" for="categories">Select category:</label>
                     <div class="categories-list controls">
-                        {{#each categories}}
-                            <label class="category-label" for="category">
-                                <input name="radios" category-name="{{name}}" class="category" value="{{_id}}"  type="radio">
-                                {{name}}
-                            </label>
-                        {{/each}}
+
+                        <select id="selectbasic-0" name="selectbasic-0" class="input-xlarge">
+                            <option id="{{_id}}" category-name="" class="category">All</option>
+                            {{#each categories}}
+                                <option id="{{_id}}" category-name="{{name}}" class="category">{{name}}</option>
+                            {{/each}}
+                        </select>
                     </div>
+                    <!--<label class="control-label" for="categories">Select category:</label>-->
+                    <!--<div class="categories-list controls">-->
+                        <!--{{#each categories}}-->
+                            <!--<label class="category-label" for="category">-->
+                                <!--<input name="radios" category-name="{{name}}" class="category" value="{{_id}}"  type="radio">-->
+                                <!--{{name}}-->
+                            <!--</label>-->
+                        <!--{{/each}}-->
+                    <!--</div>-->
                 </div>
 
                 <label class="control-label" for="items-list">Items purchased:</label>
@@ -119,18 +131,5 @@
 
             </fieldset>
         </form>
-
-
-        user is not verified. go verify yourself!
     {{/if}}
-    {{userEmailAddress}}
-
-    <button class="addToCounter">Click Me</button>
-    <p>You've pressed the button {{plus}} times.</p>
-    <button class="addToCounter1">Click Me</button>
-    <p>You've pressed the button {{minus}} times.</p>
-
-    <p>last counter: {{counter}} </p>
-    <br>
-    {{totalCounts}}
 </template>

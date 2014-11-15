@@ -9,7 +9,11 @@ Template.purchase.helpers({
         return Meteor.users.find({_id: {$in: house().users}});
     },
     items: function () {
-        return Items.find({house: house()._id, category: Session.get("category")});
+        var search =  {house: house()._id};
+        if(Session.get("category")){
+            search.category = Session.get("category");
+        }
+        return Items.find(search);
     },
     categories: function () {
         return Categories.find({house: house()._id});
@@ -20,7 +24,7 @@ Template.purchase.events({
 
     "change .categories-list": function (JQevent, blazeTemplate) {
         var categoryName = $(".categories-list .category").filter(function (i, cat) {
-            return cat.checked;
+            return cat.selected;
         }).attr('category-name');
         Session.set('category', categoryName);
     },
@@ -54,17 +58,10 @@ Template.purchase.events({
                 return item.id
             });
 
-        var categories = $("#categories-list #category");
-        category_id = categories.filter(function (i, category) {
-            return category.selected;
-        })
-            .map(function (i, category) {
-                return category.id
-            });
-
         Purchases.insert({
+            "date": new Date,
             "tenant": tenant,
-            "category": category_id,
+            "category": Session.get("category"),
             "items": items.toArray()
         });
     }
