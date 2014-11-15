@@ -6,6 +6,7 @@
 <body>
 {{loggingIn}}
 {{> loginButtons}}
+<!--{{> tenantsBlock}}-->
 <h1>Household</h1>
 <!-- {{> hello}} -->
 {{> purchase}}
@@ -29,6 +30,18 @@
     {{totalCounts}}
 </template>
 
+<!--<template name="tenantsBlock">-->
+    <!--<h1>Hello, testing 123</h1>-->
+    <!--<ol>-->
+    <!--{{#each tenants}}-->
+        <!--<li class="name {{selected}}">-->
+            <!--<span>Item name: <strong>{{name}}</strong></span>-->
+            <!--<span>Category: <strong>{{category}}</strong></span>-->
+            <!--<span>House: <strong>{{house}}</strong></span>-->
+        <!--</li>-->
+    <!--{{/each}}-->
+    <!--</ol>-->
+<!--</template>-->
 
 <template name="purchase">
     {{#if userIsVerified}}
@@ -51,35 +64,36 @@
                             {{/each}}
                         </select>
                     </div>
+                </div>
+                <div class="control-group">
 
-                    <label class="control-label" for="items-list">Items purchased:</label>
-
-                    <div id="items-list" class="controls">
-                        <select id="items-list" name="selectmultiple-0" class="input-xlarge" multiple="multiple">
-                            {{#each items}}
-                                <option id="{{_id}}" class="single-item">{{name}}</option>
-                            {{/each}}
-                        </select>
-                    </div>
-
-                    <label class="control-label" for="items-list">Add item to the list:</label>
-                    <div class="input-group">
-                        <input  id="add-item" type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button id="submit-item"  class="btn btn-default" type="button">Add</button>
-                        </span>
-                    </div>
-                    <!-- /input-group -->
                     <label class="control-label" for="categories">Select category:</label>
-
-                    <div id="categories-list" class="controls">
+                    <div class="categories-list controls">
                         {{#each categories}}
-                            <label class="categories" for="radios-0">
-                                <input name="radios" id="category" value="{{_id}}" checked="checked" type="radio">
+                            <label class="category-label" for="category">
+                                <input name="radios" category-name="{{name}}" class="category" value="{{_id}}"  type="radio">
                                 {{name}}
                             </label>
                         {{/each}}
                     </div>
+                </div>
+
+                <label class="control-label" for="items-list">Items purchased:</label>
+
+                <div id="items-list" class="controls">
+                    <select id="items-list" name="selectmultiple-0" class="input-xlarge" multiple="multiple">
+                    {{#each items}}
+                                <option id="{{_id}}" class="single-item">{{name}}</option>
+                            {{/each}}
+                    </select>
+                </div>
+
+                <label class="control-label" for="items-list">Add item to the list:</label>
+                <div class="input-group">
+                    <input  id="add-item" type="text" class="form-control">
+                        <span class="input-group-btn">
+                    <button id="submit-item"  class="btn btn-default" type="button">Add</button>
+                    </span>
                 </div>
 
                 <div class="control-group">
